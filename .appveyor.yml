@@ -10,13 +10,13 @@ environment:
 
 init:
 
-  - cmd: echo '"%VCVARS_SCRIPT%" %VCVARS_PLATFORM%'
   - cmd: '"%VCVARS_SCRIPT%" %VCVARS_PLATFORM%'
 
 build_script:
 
   - cmd: |
       sed -i 's#ABC_USE_PTHREADS"#ABC_DONT_USE_PTHREADS" /D "_XKEYCHECK_H"#g' *.dsp
+      awk -i inplace 'BEGIN { del=0; } /# Begin Group "uap"/ { del=1; } /# End Group/ { if(del>0) {del=0; next;} } del==0 {print;} ' abclib.dsp
       unix2dos *.dsp
 
   - cmd: |
@@ -33,7 +33,5 @@ build_script:
       _TEST\abc.exe -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
 
   - cmd: |
-      dir
       appveyor PushArtifact _TEST/abc.exe
-      _TEST\abc.exe -c "help"
 
