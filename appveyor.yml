@@ -15,13 +15,12 @@ init:
 
 build_script:
 
-  # - cmd: sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abclib.dsp
-  # - cmd: sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abcexe.dsp
-
-  - cmd: devenv abcspace.dsw /upgrade || dir
-  - cmd: msbuild abcspace.sln /m /nologo /p:Configuration=Release
-
-  - cmd: appveyor PushArtifact UpgradeLog.htm
-  - cmd: appveyor PushArtifact abcspace.dsw
-  - cmd: appveyor PushArtifact abclib.dsp
-  - cmd: appveyor PushArtifact abcexe.dsp
+  - cmd: |
+      sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abclib.dsp
+      sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abcexe.dsp
+      devenv abcspace.dsw /upgrade || dir
+      msbuild abcspace.sln /m /nologo /p:Configuration=Release
+      appveyor PushArtifact UpgradeLog.htm
+      appveyor PushArtifact abcspace.dsw
+      appveyor PushArtifact abclib.dsp
+      appveyor PushArtifact abcexe.dsp
