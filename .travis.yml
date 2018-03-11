@@ -23,7 +23,4 @@ script:
   - make libabc.a
   - gcc -Wall -c src/demo.c -o demo.o
   - g++ -o demo demo.o libabc.a -lm -ldl -lreadline -lpthread
-  
   - ./demo i10.aig
-
-  - appveyor PushArtifact abc
