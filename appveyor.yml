@@ -10,7 +10,7 @@ environment:
 
 init:
 
-  - cmd: "%VCVARS_SCRIPT%" %VCVARS_PLATFORM%
+  - cmd: '"%VCVARS_SCRIPT%" %VCVARS_PLATFORM%'
 
 
 build_script:
