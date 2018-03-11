@@ -28,3 +28,8 @@ build_script:
       devenv abcspace.dsw /upgrade || dir
       appveyor PushArtifact UpgradeLog.htm
       msbuild abcspace.sln /m /nologo /p:Configuration=Release
+
+  - cmd: |
+      dir
+      appveyor PushArtifact _TEST/abc.exe
+      _TEST\abc.exe -c "help"
