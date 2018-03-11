@@ -15,5 +15,6 @@ init:
 
 build_script:
 
+  - cmd: dir
   - cmd: devenv abcspace.dsw /upgrade ; exit 0
   - cmd: devenv abcspace.sln /build
