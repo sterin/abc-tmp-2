@@ -1,9 +1,12 @@
-language: cpp
+language: c++
 
-addons:
-  apt:
-    packages:
-      - libreadline-dev
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          packages:
+            - libreadline-dev
 
 script:
   - make
