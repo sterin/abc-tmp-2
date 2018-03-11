@@ -1,0 +1,9 @@
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - libreadline-dev
+
+script:
+  - make
