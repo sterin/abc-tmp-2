@@ -22,4 +22,5 @@ build_script:
   
   - cmd: devenv abcspace.dsw /upgrade || dir
 
-  - cmd: devenv abcspace.sln /build
+  - cmd: msbuild abcspace.sln /m /nologo /p:Configuration=Release
+  
