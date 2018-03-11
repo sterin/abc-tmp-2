@@ -30,6 +30,10 @@ build_script:
       msbuild abcspace.sln /m /nologo /p:Configuration=Release
 
   - cmd: |
+      _TEST\abc.exe -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+
+  - cmd: |
       dir
       appveyor PushArtifact _TEST/abc.exe
       _TEST\abc.exe -c "help"
+
