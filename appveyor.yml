@@ -15,7 +15,9 @@ init:
 
 build_script:
 
-  - cmd: sed -ie "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abclib.dsp abcexe.dsp
+  - cmd: sed -ie "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abclib.dsp
+  - cmd: sed -ie "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abcexe.dsp
+  
   - cmd: devenv abcspace.dsw /upgrade || dir
   - cmd: msbuild abcspace.sln /m /nologo /p:Configuration=Release
 
