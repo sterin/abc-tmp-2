@@ -21,7 +21,7 @@ build_script:
   - cmd: set
   
   - cmd: |
-    devenv abcspace.dsw /upgrade
-    exit 0
+      devenv abcspace.dsw /upgrade
+      exit 0
 
   - cmd: devenv abcspace.sln /build
