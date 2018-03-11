@@ -16,7 +16,7 @@ init:
 build_script:
 
   - cmd: |
-      sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" *.dsp
+      sed -i "s#ABC_USE_PTHREADS"#ABC_DONT_USE_PTHREADS" /D "_XKEYCHECK_H"#g" *.dsp
       unix2dos *.dsp
 
   - cmd: |
