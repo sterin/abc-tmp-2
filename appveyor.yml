@@ -17,7 +17,9 @@ build_script:
 
   - cmd: |
       sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abclib.dsp
+      unix2dos abclib.dsp
       sed -i "s/ABC_USE_PTHREADS/ABC_DONT_USE_PTHREADS/g" abcexe.dsp
+      unix2dos abcexe.dsp
       devenv abcspace.dsw /upgrade || dir
       msbuild abcspace.sln /m /nologo /p:Configuration=Release
       appveyor PushArtifact UpgradeLog.htm
